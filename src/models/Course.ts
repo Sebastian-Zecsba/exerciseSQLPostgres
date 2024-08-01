@@ -9,7 +9,7 @@ export interface ICourse {
 
 interface CourseCrationAttributes extends Optional<ICourse, 'id'> {}
 
-const Course = sequelize.define<Model<ICourse, CourseCrationAttributes>>('task', {
+const Course = sequelize.define<Model<ICourse, CourseCrationAttributes>>('course', {
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,

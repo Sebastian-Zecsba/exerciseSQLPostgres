@@ -6,15 +6,15 @@ dotenv.config()
 const urlDB = process.env.DATABASE_URL as string;
 
 export const sequelize = new Sequelize(urlDB, {
-    dialect: 'postgres',
-    logging: false
+    dialect: 'postgres'
 })
 
 export const connectDB = async () => {
 
     try {
-        await sequelize.sync({ force: true })
-        console.log('La conección fue exitosa')
+        await sequelize.authenticate();
+        await sequelize.sync();
+        console.log('Sincronización de las tablas fue exitosa');
     } catch (error) {
         console.log('Error al conectar a sequelize')
     }
